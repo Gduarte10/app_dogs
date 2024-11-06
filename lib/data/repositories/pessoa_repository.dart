@@ -18,7 +18,7 @@ class PessoaRepository {
     return pessoaMaps.map((map) {
       return Pessoa(
           id: map['id'] as int?,
-          nome: map['name'] as String,
+          nome: map['nome'] as String,
           telefone: map['telefone'] as String?,
           email: map['email'] as String?,
           enderecoAvRua: ['enderecoAvRua'] as String?,

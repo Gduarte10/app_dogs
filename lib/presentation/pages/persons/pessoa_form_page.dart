@@ -55,167 +55,213 @@ class _DogPageFormState extends State<PessoaFormPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Card(
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Novo cliente',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.teal,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          controller: nomeController,
-                          decoration: InputDecoration(
-                            labelText: 'Nome',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Novo cliente',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.teal,
                             ),
                           ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre um nome';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: telefoneController,
-                          decoration: InputDecoration(
-                            labelText: 'Telefone',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            controller: nomeController,
+                            decoration: InputDecoration(
+                              labelText: 'Nome',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre um nome';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: telefoneController,
+                            decoration: InputDecoration(
+                              labelText: 'Telefone',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre um telefone';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              labelText: 'Email',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre um email';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: enderecoCepController,
+                            decoration: InputDecoration(
+                              labelText: 'CEP',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre seu Cep';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: enderecoAvRuaController,
+                            decoration: InputDecoration(
+                              labelText: 'Endereço (Rua/AV)',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre um Endereço';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: enderecoNumeroController,
+                            decoration: InputDecoration(
+                              labelText: 'Numero endereço',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre um numero endereço';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: enderecoCidadeController,
+                            decoration: InputDecoration(
+                              labelText: 'Cidade',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre sua cidade';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: enderecoEstadoController,
+                            decoration: InputDecoration(
+                              labelText: 'Estado',
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor cadastre seu Estado';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 30),
+                          ElevatedButton.icon(
+                            onPressed: savepessoa,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 15.0,
+                                horizontal: 30.0,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            icon: const Icon(Icons.save, size: 24),
+                            label: const Text(
+                              'Cadastrar',
+                              style: TextStyle(fontSize: 18),
                             ),
                           ),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre um telefone';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: telefoneController,
-                          decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
-                            ),
-                          ),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre um email';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: telefoneController,
-                          decoration: InputDecoration(
-                            labelText: 'Endereço (Rua/AV)',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
-                            ),
-                          ),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre um Endereço';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: telefoneController,
-                          decoration: InputDecoration(
-                            labelText: 'Numero endereço',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
-                            ),
-                          ),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre um numero endereço';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: telefoneController,
-                          decoration: InputDecoration(
-                            labelText: 'Cidade',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
-                            border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
-                            ),
-                          ),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Por favor cadastre sua cidade';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 30),
-                        ElevatedButton.icon(
-                          onPressed: savepessoa,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.teal,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 15.0,
-                              horizontal: 30.0,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                          ),
-                          icon: const Icon(Icons.save, size: 24),
-                          label: const Text(
-                            'Salvar',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            )
-          ],
+                        ],
+                      )),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
