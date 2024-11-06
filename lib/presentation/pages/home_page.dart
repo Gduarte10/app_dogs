@@ -1,3 +1,4 @@
+import 'package:app_dogs/presentation/pages/persons/pessoa_form_page.dart';
 import 'package:flutter/material.dart';
 import 'dogs/dog_page.dart';
 
@@ -49,8 +50,14 @@ class HomePage extends StatelessWidget {
             // Menu para a página de Clientes
             ListTile(
               leading: const Icon(Icons.people, color: Colors.teal),
-              title: const Text('Clientes'),
-              onTap: () {},
+              title: const Text('Pessoas'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PessoaFormPage()),
+                );
+              },
             ),
           ],
         ),
