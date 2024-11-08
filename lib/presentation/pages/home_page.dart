@@ -1,4 +1,4 @@
-import 'package:app_dogs/presentation/pages/persons/pessoa_form_page.dart';
+import 'package:app_dogs/presentation/pages/persons/pessoa_page.dart';
 import 'package:flutter/material.dart';
 import 'dogs/dog_page.dart';
 
@@ -54,8 +54,7 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const PessoaFormPage()),
+                  MaterialPageRoute(builder: (context) => const PessoaPage()),
                 );
               },
             ),

@@ -21,11 +21,11 @@ class PessoaRepository {
           nome: map['nome'] as String,
           telefone: map['telefone'] as String?,
           email: map['email'] as String?,
-          enderecoAvRua: ['enderecoAvRua'] as String?,
-          enderecoNumero: ['enderecoNumero'] as String?,
-          enderecoCidade: ['enderecoCidade'] as String?,
-          enderecoCep: ['enderecoCep'] as String?,
-          enderecoEstado: ['enderecoEstado'] as String?);
+          enderecoAvRua: map['enderecoAvRua'] as String?,
+          enderecoNumero: map['enderecoNumero'] as String?,
+          enderecoCidade: map['enderecoCidade'] as String?,
+          enderecoCep: map['enderecoCep'] as String?,
+          enderecoEstado: map['enderecoEstado'] as String?);
     }).toList();
   }
 

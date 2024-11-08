@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:app_dogs/data/models/pessoa_model.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import '../../../data/repositories/pessoa_repository.dart';
 import '../../viewmodels/pessoa_viewmodel.dart';
 
@@ -7,10 +10,10 @@ class PessoaFormPage extends StatefulWidget {
   const PessoaFormPage({super.key});
 
   @override
-  State<PessoaFormPage> createState() => _DogPageFormState();
+  State<PessoaFormPage> createState() => _PessoaPageFormState();
 }
 
-class _DogPageFormState extends State<PessoaFormPage> {
+class _PessoaPageFormState extends State<PessoaFormPage> {
   final _formKey = GlobalKey<FormState>();
   final nomeController = TextEditingController();
   final telefoneController = TextEditingController();
@@ -42,6 +45,45 @@ class _DogPageFormState extends State<PessoaFormPage> {
           const SnackBar(content: Text('Cliente adicionado com sucesso!')),
         );
         Navigator.pop(context); // Fecha a página após salvar
+      }
+    }
+  }
+
+  _buscarendereco(String cep) async {
+    if (cep.length != 8) return;
+
+    try {
+      final response =
+          await http.get(Uri.parse('https://viacep.com.br/ws/$cep/json/'));
+
+      if (!mounted) return;
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        if (data.containsKey('erro')) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('CEP não encontrado!')),
+            );
+          }
+          return;
+        }
+        setState(() {
+          enderecoAvRuaController.text = data['logradouro'] ?? '';
+          enderecoCidadeController.text = data['localidade'] ?? '';
+          enderecoEstadoController.text = data['uf'] ?? '';
+        });
+      } else if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('erro ao buscar endereço')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Erro de rede ao buscar o endereço')),
+        );
       }
     }
   }
@@ -149,6 +191,7 @@ class _DogPageFormState extends State<PessoaFormPage> {
                               ),
                             ),
                             keyboardType: TextInputType.number,
+                            onChanged: (value) => _buscarendereco(value),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Por favor cadastre seu Cep';

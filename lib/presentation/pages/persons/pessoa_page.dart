@@ -1,5 +1,6 @@
 import 'package:app_dogs/data/models/pessoa_model.dart';
 import 'package:app_dogs/data/repositories/pessoa_repository.dart';
+import 'package:app_dogs/presentation/pages/persons/pessoa_edit_page.dart';
 import 'package:app_dogs/presentation/pages/persons/pessoa_form_page.dart';
 import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -104,12 +105,13 @@ class PessoaPageState extends State<PessoaPage> {
                           IconButton(
                             icon: const Icon(Icons.edit, color: Colors.orange),
                             onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => PessoaEditPage(Pessoa: pessoa),
-                              //   ),
-                              // ).then((_) => _loadPessoas());
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      PessoaEditPage(pessoa: pessoa),
+                                ),
+                              ).then((_) => _loadPessoas());
                             },
                           ),
                           IconButton(
@@ -133,7 +135,7 @@ class PessoaPageState extends State<PessoaPage> {
           ).then((_) => _loadPessoas());
         },
         backgroundColor: Colors.teal,
-        tooltip: 'Adicionar Dog', // Cor do botão
+        tooltip: 'Cadastrar cliente', // Cor do botão
         child: const Icon(Icons.add, size: 30),
       ),
     );
