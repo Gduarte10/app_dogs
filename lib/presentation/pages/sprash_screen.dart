@@ -16,7 +16,7 @@ class _SprashScreenState extends State<SprashScreen> {
   }
 
   Future<void> _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 4));
 
     if (mounted) {
       Navigator.of(context).pushReplacement(
